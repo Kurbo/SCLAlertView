@@ -77,6 +77,11 @@
     {
         self.layer.borderWidth = [buttonConfig[@"borderWidth"] floatValue];
     }
+  if (buttonConfig[@"cornerRadius"])
+  {
+    self.layer.cornerRadius = [buttonConfig[@"cornerRadius"] floatValue];
+  }
+  
 }
 
 #pragma mark - Helpers
