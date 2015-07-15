@@ -6,11 +6,7 @@
 //  Copyright (c) 2014 AnyKey Entertainment. All rights reserved.
 //
 
-#if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
-#else
-#import <UIKit/UIKit.h>
-#endif
 #import "SCLButton.h"
 
 typedef NSAttributedString* (^SCLAttributedFormatBlock)(NSString *value);
@@ -74,6 +70,11 @@ typedef NS_ENUM(NSInteger, SCLAlertViewBackground)
     Blur,
     Transparent
 };
+
+@property (nonatomic) BOOL horizontalButtons;
+@property (nonatomic) BOOL reverseButtons;
+@property (nonatomic) NSArray *buttonsWeights;
+@property (nonatomic, strong) UIColor *defaultButtonColor;
 
 /** Title Label
  *
@@ -171,12 +172,6 @@ typedef NS_ENUM(NSInteger, SCLAlertViewBackground)
  * Circle icon height
  */
 @property (nonatomic) CGFloat circleIconHeight;
-
-/** Set SCLAlertView extension bounds.
- *
- * Set new bounds (EXTENSION ONLY)
- */
-@property (nonatomic) CGRect extensionBounds;
 
 /** Initialize SCLAlertView using a new window.
  *
