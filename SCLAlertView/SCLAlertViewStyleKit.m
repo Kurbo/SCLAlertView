@@ -54,14 +54,18 @@ static UIImage *imageOfEdit = nil;
     [checkmarkShapePath fill];
 }
 
-+ (void)drawCross
++ (void)drawCross {
+  return[self drawCrossWithSize:CGSizeMake(80, 80)];
+}
+
++ (void)drawCrossWithSize:(CGSize)size
 {
     // Cross Shape Drawing
     UIBezierPath *crossShapePath = [[UIBezierPath alloc] init];
-    [crossShapePath moveToPoint:CGPointMake(10, 70)];
-    [crossShapePath addLineToPoint:CGPointMake(70, 10)];
+    [crossShapePath moveToPoint:CGPointMake(10, size.width - 10)];
+    [crossShapePath addLineToPoint:CGPointMake(size.width - 10, 10)];
     [crossShapePath moveToPoint:CGPointMake(10, 10)];
-    [crossShapePath addLineToPoint:CGPointMake(70, 70)];
+    [crossShapePath addLineToPoint:CGPointMake(size.width - 10, size.height - 10)];
     
     crossShapePath.lineCapStyle = kCGLineCapRound;
     crossShapePath.lineJoinStyle = kCGLineJoinRound;
@@ -253,15 +257,19 @@ static UIImage *imageOfEdit = nil;
 }
 
 
-+ (UIImage*)imageOfCross
++ (UIImage*)imageOfCross {
+  return [self imageOfCrossWithSize:CGSizeMake(80, 80)];
+}
+
++ (UIImage*)imageOfCrossWithSize:(CGSize)size
 {
     if (imageOfCross != nil)
     {
         return imageOfCross;
     }
     
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), NO, 0);
-    [SCLAlertViewStyleKit drawCross];
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(size.width, size.height), NO, 0);
+    [SCLAlertViewStyleKit drawCrossWithSize:size];
     imageOfCross = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
