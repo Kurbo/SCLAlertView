@@ -6,14 +6,8 @@
 //  Copyright (c) 2014 AnyKey Entertainment. All rights reserved.
 //
 
-#if defined(__has_feature) && __has_feature(modules)
 @import Foundation;
 @import UIKit;
-#else
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#endif
-#import "SCLButton.h"
 
 @interface SCLAlertViewStyleKit : NSObject
 
@@ -29,6 +23,8 @@
  * TODO
  */
 + (UIImage*)imageOfCross;
+
++ (UIImage*)imageOfCrossWithSize:(CGSize)size;
 
 /** TODO
  *
