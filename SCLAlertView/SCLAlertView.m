@@ -296,6 +296,8 @@ NSTimer *durationTimer;
       
       float xOffset = (horizontalButtons ? 20 : 12.0f);
       float _buttonsSpacing = 10;
+      if(horizontalButtons)
+        y += 20;
       float buttonSpace = _windowWidth - 2 * xOffset - _buttonsSpacing;
       for (SCLButton *btn in (reverseButtons ? [_buttons reverseObjectEnumerator] : _buttons))
         {
@@ -553,7 +555,7 @@ NSTimer *durationTimer;
     if (!horizontalButtons || [_buttons count] == 0)
       self.windowHeight += 45.0f;
     else
-      self.windowHeight += 15.0f;
+      self.windowHeight += 25.0f;
     
     // Add button
     SCLButton *btn = [[SCLButton alloc] init];
