@@ -3,7 +3,7 @@
 //  SCLAlertView
 //
 //  Created by Diogo Autilio on 9/26/14.
-//  Copyright (c) 2014-2016 AnyKey Entertainment. All rights reserved.
+//  Copyright (c) 2014 AnyKey Entertainment. All rights reserved.
 //
 
 #if defined(__has_feature) && __has_feature(modules)
@@ -11,8 +11,6 @@
 #else
 #import <UIKit/UIKit.h>
 #endif
-
-@class SCLTimerDisplay;
 
 @interface SCLButton : UIButton
 
@@ -24,9 +22,9 @@ typedef NSDictionary* (^ButtonFormatBlock)(void);
 // Action Types
 typedef NS_ENUM(NSInteger, SCLActionType)
 {
-    SCLNone,
-    SCLSelector,
-    SCLBlock
+    None,
+    Selector,
+    Block
 };
 
 /** Set button action type.
@@ -86,24 +84,5 @@ typedef NS_ENUM(NSInteger, SCLActionType)
  * Set keys : backgroundColor, borderWidth, borderColor, textColor
  */
 - (void)parseConfig:(NSDictionary *)buttonConfig;
-
-/** Set button timer.
- *
- * Holds the button timer, if present.
- */
-@property (nonatomic) SCLTimerDisplay *timer;
-
-/** Init method
- *
- */
-- (instancetype)initWithWindowWidth:(CGFloat)windowWidth;
-
-/** Adjust width of the button according to the width of the alert and
- * the number of buttons. Only used when buttons are horizontally aligned.
- *
- * @param windowWith The width of the alert.
- * @param numberOfButtons The number of buttons in the alert.
- */
-- (void)adjustWidthWithWindowWidth:(CGFloat)windowWidht numberOfButtons:(NSUInteger)numberOfButtons;
 
 @end
